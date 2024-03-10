@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Payment Page</title>
+<style>
+            a{color:white;
+          text-decoration:none;
+          font-size:35px;
+        }
+#header{
+background-image:url("https://img.myloview.com/posters/online-food-delivery-service-vector-illustration-delivery-boy-riding-red-motorbike-on-map-fast-food-delivery-design-template-for-landing-page-web-mobile-app-poster-and-flyer-700-193268944.jpg");
+background-size:contain;
+background-repeat:none;
+color:white;
+opacity:0.8;
+text-align:center;
+font-size:33px;
+padding-top:65px;
+padding-bottom:2px;
+}
+h1{background:black;
+opacity:0.90;
+}
+#nav{
+background-color:#eeeeee;
+width:650px;
+height:350px;
+}
+.next{
+text-decoration:none;}
+
+</style>
+</head>
+<body>
+<div id="header">
+<h1>Checkout</h1>
+</div>
+<form>
+<center>
+
+<h2>Total Bill will be sent to your Email<br>Please enter your email-id.</h2><br>
+<h2>Email-id:<input type="email" name="email" autofocus="on" required></h2><br><br>
+<fieldset style="width:700px">
+    <legend><strong><u><font size="5">Delivery Details</legend></strong></u></font>
+    <div id="nav"><font size="6"><p>Name:<input type="text" name="name" title="Characters only" pattern="[a-zA-Z]+" required></p>
+    <p>Phone Number:<input type="text" name="pnum" title="ex:9876984352" pattern="[0-9]{10}" required><br>
+    Alternate Phone No.:<input type="text" name="apnum" title="ex:9876984352"></p>
+    <p>Delivery Address:<textarea rows="5" cols="30" required></textarea></p></div><br>
+<fieldset style="width:700px">
+<legend><strong><u><font size="5">Payment Methods</strong></u></font></legend>
+<div id="nav"><font size="6"><input type="radio" name="pay">Cash on Delivery<br><br></font>
+<font size="6"><a href="https://retail.onlinesbi.sbi/retail/login.htm"><input type="radio" name="pay" title="right click"></a>NET Banking<br><br></font>
+<font size="6"><a href="https://pay.google.com/intl/en_in/about/"><input type="radio" name="pay" title="right click"></a>Google Pay<br><br></font>
+<font size="6"><a href="https://pay.google.com/intl/en_in/about/"><input type="radio" name="pay" title="right click"></a>Phone Pe<br><br></font>
+<font size="6"><a href="https://pay.google.com/intl/en_in/about/"><input type="radio" name="pay" title="right click"></a>Paytm<br><br></div></font>
+</fieldset>
+
+<input type="submit" value="Submit"> <input type="reset" value="Clear"><br>
+<a href="2ndpg.html" class="next"><---Back</a>
+<center><a href="confirm_page.html" ><div class="josh" style=" width:350px;height:50px;border-radius:25px;
+    background:crimson;
+border: 2px solid #eeeeee;"><center>Click to confirm order</center></div></a></center>
+
+</fieldset>
+</center>
+</body>
+</html>

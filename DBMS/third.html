@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>1c</title>
+<style>
+  #form
+            {
+                float: right;
+                border: 2px solid burlywood;
+                border-width:100px ;
+                margin-top: 50px;
+                padding: 10px;
+                 
+            }
+  .slideshow-container {
+  
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+.mySlides {
+  display: none;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+  background-color: #717171;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+#header{
+background-color: rgb(247, 86, 27);
+background-size:cover;
+background-repeat:none;
+color:navy;
+opacity:0.88;
+text-align:center;
+font-size:25px;
+padding-top:30px;
+padding-bottom:2px;
+}
+h1{background:whitesmoke;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 100px;
+opacity:0.90;
+}
+#footer{
+background-color:rgb(41, 40, 40);
+color:white;
+float:left;
+font-size:20px;
+width:1500px;
+opacity:0.8;
+padding:20px;
+height:30px;
+text-align:center;
+bottom: 0%;
+}
+p{
+    float: left;
+    width: 800px;
+    margin-right: 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#sider{
+background-color:rgb(227, 151, 36);
+opacity: 0.5;
+float:right;
+font-size:33px;
+width:250px;
+padding-top: 150px;
+padding-left: 20px;
+padding-right: 20px;
+height:470px;
+}
+</style>
+<script>
+const form = document.getElementById('area-form');
+
+
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+
+  const area = document.getElementById('area').value;
+  
+ 
+  try {
+    const res = await fetch('/restaurants', {
+      method: 'POST',
+      body: JSON.stringify({ area }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const data = await res.json();
+    const { restaurants } = data;
+
+    // Get the list element where the restaurants will be displayed
+    const list = document.getElementById('restaurant-list');
+
+    // Clear the list
+    list.innerHTML = '';
+
+    // Iterate over the restaurants and create a list item for each one
+    restaurants.forEach((restaurant) => {
+      const item = document.createElement('ul');
+      item.innerText = restaurant.name;
+      list.appendChild(item);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+</script>
+</head>
+<body>
+<div id="header">
+welcome to
+<h1>FOODEE EXPRESS</h1>
+<h4>A Fascinating Flavour Experience</h4></div>
+<fieldset style="border-color: white;border-width: 0ch;">
+<div  style="float:left;">     
+<div class="slideshow-container">
+        <div class="mySlides fade"><img src="https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/content9733.jpg" style="width: 100%;" height="600"></div>
+        <div class="mySlides fade"><img src="https://realfood.tesco.com/media/images/RFO-1400x919-classic-chocolate-mousse-69ef9c9c-5bfb-4750-80e1-31aafbd80821-0-1400x919.jpg" style="width:118%" height="600"></div>
+        <div class="mySlides fade"><img src="https://assets.gqindia.com/photos/5cfe57ebeaf24adba554d793/master/pass/Best%20Chinese%20restaurants%20in%20Mumbai.jpg" style="width:100%" height="600"></div>
+        <div class="mySlides fade"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Vegetarian_Curry.jpeg/640px-Vegetarian_Curry.jpeg" style="width:100%" height="600"></div>
+        <div class="mySlides fade"><img src="https://www.viniscookbook.com/wp-content/uploads/2019/06/20190613_214607.jpg" style="width:120%" height="600"></div>
+        <div class="mySlides fade"><img src="https://kauveryhospital.com/blog/wp-content/uploads/2021/04/pizza-5179939_960_720.jpg" style="width:120%" height="600"></div>     
+        <div class="mySlides fade"><img src="https://c.ndtvimg.com/2022-04/fq5cs53_biryani-doubletree-by-hilton_625x300_12_April_22.jpg" style="width:95%" height="600"></div>
+        <div class="mySlides fade"><img src="https://im.whatshot.in/img/2020/Jun/header-725x420-delhi-10768-b-1592594314.jpg" style="width:105%" height="600"></div>
+        <div class="mySlides fade"><img src="https://img.onmanorama.com/content/dam/mm/en/food/foodie/images/2020/6/24/soups.jpg" style="width:95%" height="600"></div>
+      </div><br>
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+        <span class="dot" onclick="currentSlide(9)"></span>
+      </div>
+      </div>
+      <script>
+      let slideIndex = 0;
+      showSlides();
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 2000); 
+      }
+      </script>
+<div id="sider"><marquee onmouseover="this.stop()" onmouseout="this.start()" direction="up">"SATISFY YOUR CRAVINGS NOW BY ORDERING FROM OUR WIDE RANGE OF MENU!!"</marquee></div>
+</fieldset>
+<fieldset style="border-width: 0ch;">
+<p><font size="6"><b>About us</b><br>We welcome you to a delicious feast of exquisite dishes in Star line. With a wide range of restaurants to choose from, we guarantee you a sumptuous feast experience using our website.Whether you believe that the kitchen is the heart of the home or not, you can't deny that it is a hub of activity.We offer such dishes with finger licking experience.</p>   
+  <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Please Select Area Name</button>
+        <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <a href="one.html">Rajajinagar</a>
+          <a href="second.html">Malleshwaram</a>
+          <a href="third.html">Jayanagar</a>
+          <a href="four.html">Sadashivnagar</a>
+        </div>
+      </div>
+      <form>
+        <h3>Restaurants are</h3>
+        <input type="checkbox" name="hotel" value="Nijoteja">Nijoteja<br>
+        <input type="checkbox" name="hotel" value="Desistyle">Desi style<br>
+      <br>
+      <br>
+        </form>
+        <br><center><a href="menu.html"><div class="a" style=" width:350px;height:50px;border-radius:25px;
+          background:crimson;
+ border: 2px solid #eeeeee; color:white; font-size:20px "><center>Proceed to Order</center></div></a></center>
+    </fieldset>
+      <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        function filterFunction() {
+          var input, filter, ul, li, a, i;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          div = document.getElementById("myDropdown");
+          a = div.getElementsByTagName("a");
+          for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              a[i].style.display = "";
+            } else {
+              a[i].style.display = "none";
+            }
+          }
+        }
+        </script>
+
+
+      
+
+
+<div id="footer"><span>&copy</span>Copyrights Reserved &nbsp;&nbsp;&nbsp; Contact us:+91 99450 84273</div>
+
+</body>
+</html>
+
